@@ -65,6 +65,12 @@ def parse_args(argv: Iterable[str]) -> argparse.Namespace:
         help="Load the boundary polygon(s) from a local GeoJSON file instead of geocoding via Nominatim. "
              "All polygonal features in the file are dissolved into a single boundary.",
     )
+    parser.add_argument(
+        "--internal-borders",
+        action="store_true",
+        help="When loading --boundary-geojson, keep each feature as a separate part so borders "
+             "shared between adjacent features (e.g. provinces) are drawn instead of dissolved away.",
+    )
     parser.add_argument("--display-country", help="Text to print on the poster")
     parser.add_argument(
         "--subtitle",
@@ -345,7 +351,9 @@ def main(argv: Iterable[str] = sys.argv[1:]) -> int:
 
     if args.boundary_geojson:
         print(f"Loading boundary from {args.boundary_geojson}")
-        boundary_wgs84 = load_boundary_from_geojson(args.boundary_geojson, args.country)
+        boundary_wgs84 = load_boundary_from_geojson(
+            args.boundary_geojson, args.country, keep_internal_borders=args.internal_borders
+        )
     else:
         boundary_wgs84 = get_country_boundary(
             args.country,

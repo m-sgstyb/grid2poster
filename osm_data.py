@@ -122,7 +122,9 @@ def keep_main_landmass(geometry: Any) -> Any:
     return MultiPolygon(kept)
 
 
-def load_boundary_from_geojson(path: Path, name: str) -> gpd.GeoDataFrame:
+def load_boundary_from_geojson(
+    path: Path, name: str, keep_internal_borders: bool = False
+) -> gpd.GeoDataFrame:
     gdf = gpd.read_file(path)
     if gdf.empty:
         raise RuntimeError(f"Boundary file '{path}' contains no features")
@@ -134,7 +136,17 @@ def load_boundary_from_geojson(path: Path, name: str) -> gpd.GeoDataFrame:
         gdf = gdf.set_crs("EPSG:4326")
     else:
         gdf = gdf.to_crs("EPSG:4326")
-    merged = unary_union(gdf.geometry)
+    if keep_internal_borders:
+        # Keep every input polygon as its own part instead of dissolving with
+        # unary_union. Dissolving erases edges shared by adjacent features (e.g.
+        # province borders), which the caller wants drawn on the poster.
+        # Collecting the exploded polygons into one MultiPolygon preserves those
+        # internal borders while still returning a single boundary geometry; the
+        # clip helpers re-union the parts, so coverage and extent are unchanged.
+        parts = [g for g in gdf.geometry.explode(index_parts=False) if not g.is_empty]
+        merged = parts[0] if len(parts) == 1 else MultiPolygon(parts)
+    else:
+        merged = unary_union(gdf.geometry)
     return gpd.GeoDataFrame({"name": [name]}, geometry=[merged], crs="EPSG:4326")
 
 
