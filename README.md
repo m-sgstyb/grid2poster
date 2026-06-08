@@ -222,6 +222,7 @@ python create_grid_poster.py --country "Europe" --boundary-geojson ./regions/eur
 | `regions/britain_and_ireland.geojson` | Great Britain (excl. Shetland) and the island of Ireland. |
 | `regions/canada_southern_provinces.geojson` | Canada south of 60°N; excludes Yukon, NWT, Nunavut. |
 | `regions/central_asia.geojson` | Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan, Uzbekistan. |
+| `regions/chile_to_quellon.geojson` | Chile from the northern border south to Quellón on Chiloé Island; excludes Patagonia south of Chiloé and the remote Pacific islands (Easter Island, Juan Fernández). |
 | `regions/continental_europe.geojson` | Continental Europe Synchronous Area (ENTSO-E Regional Group) approximation - ~26 countries from Albania to Ukraine. Approximate country-boundary geometry, not a TSO/control-area dataset. |
 | `regions/east_africa.geojson` | 11 East African countries from Eritrea/Djibouti south to Tanzania. |
 | `regions/eastern_interconnection.geojson` | Eastern Interconnection (approximate mask): central Canada to the Atlantic coast excluding Quebec, south to Florida, west to the Rockies. Hand-generalized, not an exact grid boundary. |
@@ -235,6 +236,7 @@ python create_grid_poster.py --country "Europe" --boundary-geojson ./regions/eur
 | `regions/malay_peninsula.geojson` | Malay Peninsula: Peninsular Malaysia, Singapore, and southern Thailand. |
 | `regions/mediterranean.geojson` | 22 countries bordering the Mediterranean. |
 | `regions/mena.geojson` | Middle East and North Africa - 18 countries. |
+| `regions/middle_america.geojson` | Middle America - 35 entries: Mexico, Central America, and the Caribbean islands and territories. |
 | `regions/quebec_south.geojson` | Southern Quebec, Canada. |
 | `regions/salish_sea.geojson` | Salish Sea region: southwestern British Columbia and northwestern Washington. |
 | `regions/scandinavia.geojson` | Denmark, Finland, Norway, Sweden. |
