@@ -194,6 +194,7 @@ def render_poster(
     outputs: list[tuple[Path, str]],
     dpi: int,
     include_metadata: bool,
+    transparent_background: bool = False,
     title_size: float | None = None,
     include_minor_lines: bool = False,
     subtitle: str | None = None,
@@ -213,8 +214,11 @@ def render_poster(
     plants: gpd.GeoDataFrame | None = None,
     plant_marker_scale: float = 1.0,
 ) -> None:
-    fig, ax = plt.subplots(figsize=(width, height), facecolor=theme.bg)
-    ax.set_facecolor(theme.bg)
+    # A transparent backdrop keeps the grid, text and fades but drops the solid
+    # theme background, so the poster can be composited over other artwork.
+    bg_color = "none" if transparent_background else theme.bg
+    fig, ax = plt.subplots(figsize=(width, height), facecolor=bg_color)
+    ax.set_facecolor(bg_color)
     ax.set_position((0, 0, 1, 1))
     ax.axis("off")
 
@@ -256,7 +260,7 @@ def render_poster(
             plants, theme, marker_scale=plant_marker_scale, color_map=plant_color_map
         )
         styled_plants = plants.assign(**plant_styles)
-        edge_color = theme.plant_edge if theme.plant_edge is not None else theme.bg
+        edge_color = theme.plant_edge if theme.plant_edge is not None else bg_color
         # One scatter per source bucket, mirroring the grouped line plotting.
         # zorder 9 sits above every line group (capped at 8) but under the
         # gradient fades (10) so markers dim toward the poster edges.
@@ -424,7 +428,8 @@ def render_poster(
     for output_file, fmt in outputs:
         save_kwargs: dict[str, Any] = {
             "format": fmt,
-            "facecolor": theme.bg,
+            "facecolor": bg_color,
+            "transparent": transparent_background,
             "bbox_inches": None,
             "pad_inches": 0,
         }

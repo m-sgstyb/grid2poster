@@ -201,6 +201,13 @@ def parse_args(argv: Iterable[str]) -> argparse.Namespace:
     parser.add_argument("--hide-metadata", action="store_true", help="Do not print segment counts on poster")
     parser.add_argument("--hide-borders", action="store_true", help="Do not draw the region boundary outline")
     parser.add_argument(
+        "--transparent-background",
+        action="store_true",
+        help="Render with a transparent background instead of the theme background color. "
+             "The grid, text, and fades are kept; only the backdrop is made transparent. "
+             "Best used with PNG or SVG output (PDF transparency support is limited).",
+    )
+    parser.add_argument(
         "--fade-top-height",
         type=float,
         default=0.28,
@@ -436,6 +443,7 @@ def main(argv: Iterable[str] = sys.argv[1:]) -> int:
         outputs=outputs,
         dpi=args.dpi,
         include_metadata=not args.hide_metadata,
+        transparent_background=args.transparent_background,
         title_size=args.title_size,
         include_minor_lines=args.include_minor_lines,
         subtitle=args.subtitle,
