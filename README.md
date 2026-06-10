@@ -206,7 +206,7 @@ Generated posters are written to the `posters/` directory by default. Intermedia
 | ![`italy_grid_autumn_20260512_162023.png`](posters/italy_grid_autumn_20260512_162023.png) | Italy | `autumn` |
 | ![`zambia_grid_sunset_20260512_162627.png`](posters/zambia_grid_sunset_20260512_162627.png) | Zambia | `sunset` |
 | ![`marocco_grid_autumn_20260512_165630.png`](posters/morocco_grid_autumn_20260518_125319.png) | Morocco | `autumn` |
-| ![`latin_america_grid_emerald_20260516_215030.png`](posters/latin_america_grid_emerald_20260516_215030.png) | Latin America | `emerald` |
+| ![`latin_america_and_the_caribbean_grid_emerald_20260516_215030.png`](posters/latin_america_and_the_caribbean_grid_emerald_20260516_215030.png) | Latin America and the Caribbean | `emerald` |
 
 ### Predefined regions
 
@@ -232,7 +232,7 @@ python create_grid_poster.py --country "Europe" --boundary-geojson ./regions/eur
 | `regions/ireland_island.geojson` | Island of Ireland (Republic of Ireland + Northern Ireland). |
 | `regions/japan_main_islands.geojson` | Japan's four main islands plus adjacent small islands; excludes Okinawa, Ogasawara, Senkaku. |
 | `regions/java_bali.geojson` | Indonesian islands of Java and Bali. |
-| `regions/latin_america.geojson` | 48 entries from Mexico through Argentina, including the Caribbean and overseas territories. |
+| `regions/latin_america_and_the_caribbean.geojson` | 48 entries from Mexico through Argentina, including the Caribbean and overseas territories. |
 | `regions/malay_peninsula.geojson` | Malay Peninsula: Peninsular Malaysia, Singapore, and southern Thailand. |
 | `regions/mediterranean.geojson` | 22 countries bordering the Mediterranean. |
 | `regions/mena.geojson` | Middle East and North Africa - 18 countries. |
