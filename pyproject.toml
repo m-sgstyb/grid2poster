@@ -1,0 +1,22 @@
+[project]
+name = "grid2poster"
+version = "0.1.0"
+description = "Generate poster-style grid maps"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "osmnx",
+    "geopandas",
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "shapely",
+    "tqdm",
+]
+
+[tool.uv]
+package = false
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
