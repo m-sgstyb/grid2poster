@@ -1,0 +1,24 @@
+{
+  "name": "Bordeaux",
+  "description": "Burgundy and burnt rose highlights on almond silk background.",
+  "bg": "#F3D9D3",
+  "text": "#5E0B15",
+  "subtext": "#6B151F",
+  "boundary": "#E8E0D0",
+
+  "line_unknown": "#B57E78",
+  "line_low": "#90323D",
+  "line_mid": "#771F29",
+  "line_high": "#5E0B15",
+  "line_extra": "#550A13",
+
+  "fade": "#F4DFDA", 
+
+  "substation_fill": "#E8E0D0",
+  "substation_outline": "#0A567F",
+  "substation_marker": "#044173",
+
+  "plant_fill": "#DCC8B8",
+  "plant_outline": "#329085",
+  "plant_marker": "#0a554c"
+}
