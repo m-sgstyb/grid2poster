@@ -1,0 +1,24 @@
+{
+  "name": "Atlantic",
+  "description": "Deep utility blues and coastal teals over a warm archival paper background.",
+  "bg": "#FBF7F0",
+  "text": "#044173",
+  "subtext": "#2A6488",
+  "boundary": "#E8E0D0",
+
+  "line_unknown": "#8AAFC2",
+  "line_low": "#035E73",
+  "line_mid": "#0A567F",
+  "line_high": "#044173",
+  "line_extra": "#022C4D",
+
+  "fade": "#FBF7F0",
+
+  "substation_fill": "#E8E0D0",
+  "substation_outline": "#0A567F",
+  "substation_marker": "#044173",
+
+  "plant_fill": "#DCC8B8",
+  "plant_outline": "#C15A24",
+  "plant_marker": "#A64616"
+}
